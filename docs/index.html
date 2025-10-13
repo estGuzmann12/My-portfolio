@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio | Diseñador & Desarrollador</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/myportafolio.css">
+</head>
+<body>
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Estefany Guzmán</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Inicio</a></li>
+                <li><a href="#about" class="nav-link">Sobre Mí</a></li>
+                <li><a href="#portfolio" class="nav-link">Portafolio</a></li>
+                <li><a href="#contact" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-content fade-in">
+            <h1>Estefany Guzmán</h1>
+            <p class="hero-subtitle">Desarrolladora</p>
+            <a href="#portfolio" class="btn-primary">Ver Mi Trabajo</a>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/estefany-guzm%C3%A1n-570b8b368/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="section-title">SOBRE MÍ</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>¿QUIÉN SOY?</h3>
+                <p>Soy un diseñador y desarrollador apasionado por crear experiencias digitales únicas y memorables. Me especializo en interfaces minimalistas con impacto maximalista.</p>
+                <a href="#" class="btn-primary">Descargar CV</a>
+            </div>
+            <div class="about-card">
+                <h3>INFORMACIÓN</h3>
+                <p><strong>Email:</strong> tu@email.com</p>
+                <p><strong>Teléfono:</strong> +123 456 789</p>
+                <p><strong>Ubicación:</strong> Tu Ciudad, País</p>
+                <p><strong>Disponible:</strong> Freelance</p>
+            </div>
+            <div class="about-card">
+                <h3>HABILIDADES</h3>
+                <ul class="skill-list">
+                    <li class="skill-item"><span>HTML/CSS</span><span>95%</span></li>
+                    <li class="skill-item"><span>JavaScript</span><span>90%</span></li>
+                    <li class="skill-item"><span>React</span><span>85%</span></li>
+                    <li class="skill-item"><span>UI/UX Design</span><span>92%</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+        <h2 class="section-title">PORTAFOLIO</h2>
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">TODOS</button>
+            <button class="filter-btn" data-filter="web">WEB</button>
+            <button class="filter-btn" data-filter="branding">BRANDING</button>
+            <button class="filter-btn" data-filter="design">DISEÑO</button>
+        </div>
+        <div class="portfolio-grid" id="portfolioGrid">
+            <div class="portfolio-item" data-category="web">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800" alt="Proyecto 1">
+                <div class="portfolio-overlay">
+                    <h3>PROYECTO WEB</h3>
+                    <p>Desarrollo web minimalista</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="branding">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800" alt="Proyecto 2">
+                <div class="portfolio-overlay">
+                    <h3>BRANDING</h3>
+                    <p>Identidad corporativa</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="design">
+                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800" alt="Proyecto 3">
+                <div class="portfolio-overlay">
+                    <h3>UI DESIGN</h3>
+                    <p>Diseño de interfaz</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="web">
+                <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800" alt="Proyecto 4">
+                <div class="portfolio-overlay">
+                    <h3>APLICACIÓN WEB</h3>
+                    <p>Desarrollo full-stack</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="branding">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" alt="Proyecto 5">
+                <div class="portfolio-overlay">
+                    <h3>LOGO DESIGN</h3>
+                    <p>Diseño de marca</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="design">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800" alt="Proyecto 6">
+                <div class="portfolio-overlay">
+                    <h3>UX RESEARCH</h3>
+                    <p>Experiencia de usuario</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="section-title">CONTACTO</h2>
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">NOMBRE</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">MENSAJE</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">ENVIAR MENSAJE</button>
+            </form>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>EMAIL</h4>
+                        <p>tu@email.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>TELÉFONO</h4>
+                        <p>+123 456 789</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>UBICACIÓN</h4>
+                        <p>Tu Ciudad, País</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 TU NOMBRE. TODOS LOS DERECHOS RESERVADOS.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/myportafolio.js"></script>
+</body>
+</html>
