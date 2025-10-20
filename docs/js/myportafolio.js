@@ -67,12 +67,10 @@ $(document).ready(function(){
         var filter = $(this).attr('data-filter');
         
         if (filter === 'all') {
-            // Mostrar todos los items
-            $('.portfolio-item').fadeOut(300, function() {
-                $(this).fadeIn(400);
-            });
+            // Mostrar todos los items con fadeIn
+            $('.portfolio-item').fadeIn(400);
         } else {
-            // Ocultar todos los items
+            // Ocultar todos los items primero
             $('.portfolio-item').fadeOut(300);
             // Mostrar solo los items del filtro seleccionado
             setTimeout(function() {
@@ -107,6 +105,7 @@ $(document).ready(function(){
     // ANIMACIÓN AL SCROLL
     // =========================
     function isInViewport(element) {
+        if (!element || !$(element).length) return false;
         var elementTop = $(element).offset().top;
         var elementBottom = elementTop + $(element).outerHeight();
         var viewportTop = $(window).scrollTop();
@@ -117,14 +116,14 @@ $(document).ready(function(){
     // Ejecutar al cargar y al hacer scroll
     function checkVisibility() {
         $('.about-card, .portfolio-item').each(function() {
-            if (isInViewport(this) && !$(this).hasClass('fade-in')) {
-                $(this).addClass('fade-in');
+            if (isInViewport(this) && !$(this).hasClass('animated')) {
+                $(this).addClass('fade-in animated');
             }
         });
     }
 
     // Ejecutar al cargar la página
-    checkVisibility();
+    setTimeout(checkVisibility, 100);
 
     // Ejecutar al hacer scroll
     $(window).scroll(function() {
@@ -148,39 +147,43 @@ $(document).ready(function(){
     });
 
     // =========================
-    // PRELOADER (OPCIONAL)
+    // PRELOADER
     // =========================
     $(window).on('load', function() {
         $('body').addClass('loaded');
     });
 
     // =========================
-    // ANIMACIÓN DE NÚMEROS (OPCIONAL)
+    // ANIMACIÓN DE NÚMEROS
     // =========================
     function animateNumbers() {
         $('.skill-item span:last-child').each(function() {
             var $this = $(this);
-            var countTo = parseInt($this.text());
+            var text = $this.text().replace('%', '');
+            var countTo = parseInt(text);
             
-            $({ countNum: 0 }).animate({
-                countNum: countTo
-            }, {
-                duration: 2000,
-                easing: 'linear',
-                step: function() {
-                    $this.text(Math.floor(this.countNum) + '%');
-                },
-                complete: function() {
-                    $this.text(this.countNum + '%');
-                }
-            });
+            if (!isNaN(countTo) && !$this.hasClass('animated')) {
+                $this.addClass('animated');
+                $({ countNum: 0 }).animate({
+                    countNum: countTo
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum) + '%');
+                    },
+                    complete: function() {
+                        $this.text(countTo + '%');
+                    }
+                });
+            }
         });
     }
 
     // Ejecutar animación de números cuando la sección esté visible
     var numbersAnimated = false;
     $(window).scroll(function() {
-        if (!numbersAnimated && isInViewport($('#about'))) {
+        if (!numbersAnimated && $('#about').length && isInViewport($('#about')[0])) {
             animateNumbers();
             numbersAnimated = true;
         }
@@ -192,56 +195,6 @@ $(document).ready(function(){
     $(window).scroll(function() {
         var scrollTop = $(this).scrollTop();
         $('.hero-pattern').css('transform', 'translateY(' + (scrollTop * 0.5) + 'px)');
-    });
-
-    // =========================
-    // TOOLTIP PARA LINKS SOCIALES (OPCIONAL)
-    // =========================
-    $('.social-link').hover(
-        function() {
-            $(this).css('box-shadow', '0 10px 20px rgba(0,0,0,0.2)');
-        },
-        function() {
-            $(this).css('box-shadow', 'none');
-        }
-    );
-
-    // =========================
-    // EFECTO HOVER EN CARDS
-    // =========================
-    $('.about-card').hover(
-        function() {
-            $(this).css('transform', 'translateY(-5px)');
-        },
-        function() {
-            $(this).css('transform', 'translateY(0)');
-        }
-    );
-
-    // =========================
-    // CONTADOR DE CARACTERES EN TEXTAREA (OPCIONAL)
-    // =========================
-    $('#message').on('input', function() {
-        var maxLength = 500;
-        var currentLength = $(this).val().length;
-        
-        if (currentLength > maxLength) {
-            $(this).val($(this).val().substring(0, maxLength));
-        }
-    });
-
-    // =========================
-    // ANIMACIÓN DE ENTRADA PARA PORTFOLIO ITEMS
-    // =========================
-    $('.portfolio-item').each(function(index) {
-        $(this).css({
-            'animation-delay': (index * 0.1) + 's',
-            'opacity': '0'
-        });
-        
-        setTimeout(function(el) {
-            $(el).css('opacity', '1');
-        }, index * 100, this);
     });
 
     // =========================
@@ -267,19 +220,28 @@ $(document).ready(function(){
     });
 
     // =========================
-    // PREVENIR SCROLL HORIZONTAL
+    // CONTADOR DE CARACTERES EN TEXTAREA
     // =========================
-    $('body').css('overflow-x', 'hidden');
+    $('#message').on('input', function() {
+        var maxLength = 500;
+        var currentLength = $(this).val().length;
+        
+        if (currentLength > maxLength) {
+            $(this).val($(this).val().substring(0, maxLength));
+        }
+    });
 
     // =========================
-    // LAZY LOADING PARA IMÁGENES (OPCIONAL)
+    // LAZY LOADING PARA IMÁGENES
     // =========================
     if ('IntersectionObserver' in window) {
         var imageObserver = new IntersectionObserver(function(entries, observer) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     var image = entry.target;
-                    image.src = image.dataset.src || image.src;
+                    if (image.dataset.src) {
+                        image.src = image.dataset.src;
+                    }
                     image.classList.add('loaded');
                     imageObserver.unobserve(image);
                 }
@@ -292,35 +254,11 @@ $(document).ready(function(){
     }
 
     // =========================
-    // EFECTO DE ESCRITURA PARA EL TÍTULO (OPCIONAL)
-    // =========================
-    function typeWriter(element, text, speed) {
-        var i = 0;
-        var txt = text;
-        element.html('');
-        
-        function type() {
-            if (i < txt.length) {
-                element.html(element.html() + txt.charAt(i));
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-        
-        type();
-    }
-
-    // Descomentar para activar efecto de escritura
-    // var heroTitle = $('.hero h1');
-    // var titleText = heroTitle.text();
-    // typeWriter(heroTitle, titleText, 100);
-
-    // =========================
-    // BOTÓN SCROLL TO TOP (OPCIONAL)
+    // BOTÓN SCROLL TO TOP
     // =========================
     // Crear botón si no existe
     if ($('#scrollTop').length === 0) {
-        $('body').append('<button id="scrollTop" style="display:none; position:fixed; bottom:30px; right:30px; background:#000; color:#fff; border:3px solid #000; width:60px; height:60px; cursor:pointer; z-index:999; font-size:24px; transition:all 0.3s;">↑</button>');
+        $('body').append('<button id="scrollTop">↑</button>');
     }
 
     // Mostrar/ocultar botón según scroll
@@ -338,32 +276,10 @@ $(document).ready(function(){
         return false;
     });
 
-    // Hover effect para el botón
-    $('#scrollTop').hover(
-        function() {
-            $(this).css({
-                'background': '#fff',
-                'color': '#000',
-                'transform': 'translateY(-5px)'
-            });
-        },
-        function() {
-            $(this).css({
-                'background': '#000',
-                'color': '#fff',
-                'transform': 'translateY(0)'
-            });
-        }
-    );
-
     // =========================
-    // PROTECCIÓN DE CLIC DERECHO EN IMÁGENES (OPCIONAL)
+    // PREVENIR SCROLL HORIZONTAL
     // =========================
-    // Descomentar para activar
-    // $('.portfolio-item img').on('contextmenu', function(e) {
-    //     e.preventDefault();
-    //     return false;
-    // });
+    $('body').css('overflow-x', 'hidden');
 
     // =========================
     // CONSOLE LOG PERSONALIZADO
@@ -384,7 +300,9 @@ function isMobile() {
 
 // Aplicar estilos específicos para móvil
 if (isMobile()) {
-    $('body').addClass('mobile-device');
+    $(document).ready(function() {
+        $('body').addClass('mobile-device');
+    });
 }
 
 // Prevenir zoom en inputs en iOS
