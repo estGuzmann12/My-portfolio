@@ -245,6 +245,10 @@ section {
     transition: var(--transition);
 }
 
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
 .about-card:hover::before {
     top: -15px;
     left: -15px;
@@ -317,6 +321,11 @@ section {
     cursor: pointer;
     background: var(--gris-claro);
     transition: var(--transition);
+    opacity: 1;
+}
+
+.portfolio-item.hidden {
+    display: none;
 }
 
 .portfolio-item img {
