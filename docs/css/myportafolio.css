@@ -1,12 +1,12 @@
 /* =========================
-   VARIABLES Y RESET
+   VARIABLES AND RESET
 ========================= */
 :root {
-    --negro: #000000;
-    --blanco: #ffffff;
-    --gris-claro: #f5f5f5;
-    --gris-medio: #cccccc;
-    --gris-oscuro: #333333;
+    --black: #000000;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --medium-gray: #cccccc;
+    --dark-gray: #333333;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -22,14 +22,14 @@ html {
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: var(--blanco);
-    color: var(--negro);
+    background-color: var(--white);
+    color: var(--black);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
 /* =========================
-   TIPOGRAFÍA MAXIMALISTA
+   MAXIMALIST TYPOGRAPHY
 ========================= */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
@@ -42,14 +42,14 @@ h2 { font-size: clamp(2rem, 6vw, 5rem); }
 h3 { font-size: clamp(1.5rem, 4vw, 3rem); }
 
 /* =========================
-   NAVEGACIÓN
+   NAVIGATION
 ========================= */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background: var(--blanco);
-    border-bottom: 3px solid var(--negro);
+    background: var(--white);
+    border-bottom: 3px solid var(--black);
     z-index: 1000;
     transition: var(--transition);
 }
@@ -70,18 +70,18 @@ h3 { font-size: clamp(1.5rem, 4vw, 3rem); }
 .logo {
     font-size: 1.5rem;
     font-weight: 900;
-    color: var(--negro);
+    color: var(--black);
     text-decoration: none;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 3rem;
+    gap: 0.8cm;
 }
 
 .nav-link {
-    color: var(--negro);
+    color: var(--black);
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
@@ -96,7 +96,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 3rem); }
     left: 0;
     width: 0;
     height: 3px;
-    background: var(--negro);
+    background: var(--black);
     transition: var(--transition);
 }
 
@@ -115,12 +115,12 @@ h3 { font-size: clamp(1.5rem, 4vw, 3rem); }
 .burger span {
     width: 25px;
     height: 3px;
-    background: var(--negro);
+    background: var(--black);
     transition: var(--transition);
 }
 
 /* =========================
-   HEADER HERO
+   HERO HEADER
 ========================= */
 .hero {
     min-height: 100vh;
@@ -129,7 +129,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 3rem); }
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: var(--blanco);
+    background: var(--white);
     padding: 0 2rem;
     margin-top: 80px;
 }
@@ -142,8 +142,8 @@ h3 { font-size: clamp(1.5rem, 4vw, 3rem); }
     height: 100%;
     opacity: 0.05;
     background-image: 
-        repeating-linear-gradient(0deg, var(--negro) 0px, var(--negro) 1px, transparent 1px, transparent 20px),
-        repeating-linear-gradient(90deg, var(--negro) 0px, var(--negro) 1px, transparent 1px, transparent 20px);
+        repeating-linear-gradient(0deg, var(--black) 0px, var(--black) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(90deg, var(--black) 0px, var(--black) 1px, transparent 1px, transparent 20px);
 }
 
 .hero-content {
@@ -166,7 +166,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 3rem); }
 
 .social-links {
     display: flex;
-    gap: 2rem;
+    gap: 0.8cm;
     justify-content: center;
     margin-top: 3rem;
 }
@@ -174,24 +174,24 @@ h3 { font-size: clamp(1.5rem, 4vw, 3rem); }
 .social-link {
     width: 60px;
     height: 60px;
-    border: 3px solid var(--negro);
+    border: 3px solid var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: var(--negro);
+    color: var(--black);
     font-size: 1.5rem;
     transition: var(--transition);
 }
 
 .social-link:hover {
-    background: var(--negro);
-    color: var(--blanco);
+    background: var(--black);
+    color: var(--white);
     transform: scale(1.1) rotate(5deg);
 }
 
 /* =========================
-   SECCIONES
+   SECTIONS
 ========================= */
 section {
     padding: 8rem 2rem;
@@ -212,7 +212,7 @@ section {
     left: 0;
     width: 100%;
     height: 5px;
-    background: var(--negro);
+    background: var(--black);
 }
 
 /* =========================
@@ -221,14 +221,14 @@ section {
 .about-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+    gap: 0.8cm;
     margin-top: 3rem;
 }
 
 .about-card {
-    border: 3px solid var(--negro);
+    border: 3px solid var(--black);
     padding: 3rem;
-    background: var(--blanco);
+    background: var(--white);
     transition: var(--transition);
     position: relative;
 }
@@ -240,7 +240,7 @@ section {
     left: -10px;
     width: 100%;
     height: 100%;
-    border: 3px solid var(--negro);
+    border: 3px solid var(--black);
     z-index: -1;
     transition: var(--transition);
 }
@@ -272,7 +272,7 @@ section {
 
 .skill-item {
     padding: 0.8rem 0;
-    border-bottom: 2px solid var(--gris-claro);
+    border-bottom: 2px solid var(--light-gray);
     font-weight: 700;
     display: flex;
     justify-content: space-between;
@@ -284,14 +284,14 @@ section {
 .portfolio-filters {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 0.8cm;
     margin-bottom: 4rem;
     flex-wrap: wrap;
 }
 
 .filter-btn {
-    background: var(--blanco);
-    border: 3px solid var(--negro);
+    background: var(--white);
+    border: 3px solid var(--black);
     padding: 1rem 2.5rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -302,37 +302,45 @@ section {
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: var(--negro);
-    color: var(--blanco);
+    background: var(--black);
+    color: var(--white);
     transform: translateY(-3px);
 }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1cm;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .portfolio-item {
     position: relative;
     overflow: hidden;
-    border: 3px solid var(--negro);
+    border: 3px solid var(--black);
     aspect-ratio: 1;
     cursor: pointer;
-    background: var(--gris-claro);
+    background: var(--white);
     transition: var(--transition);
     opacity: 1;
+    max-width: 350px;
+    margin: 0 auto;
 }
 
 .portfolio-item.hidden {
     display: none;
 }
 
+/* AJUSTE PARA LAS IMÁGENES - CAMBIO PRINCIPAL */
 .portfolio-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     transition: var(--transition);
+    padding: 10px;
+    background: var(--white);
 }
 
 .portfolio-overlay {
@@ -356,18 +364,25 @@ section {
     opacity: 1;
 }
 
+/* AJUSTE DEL ZOOM - REDUCIDO */
 .portfolio-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
+/* AJUSTE PARA EL TEXTO - TAMAÑO RESPONSIVO */
 .portfolio-overlay h3 {
-    color: var(--blanco);
+    color: var(--white);
     margin-bottom: 1rem;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    word-wrap: break-word;
+    line-height: 1.2;
 }
 
 .portfolio-overlay p {
-    color: var(--blanco);
-    font-size: 1rem;
+    color: var(--white);
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    line-height: 1.4;
+    word-wrap: break-word;
 }
 
 /* =========================
@@ -376,13 +391,13 @@ section {
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 0.8cm;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.8cm;
 }
 
 .form-group {
@@ -399,11 +414,11 @@ section {
 
 .form-group input,
 .form-group textarea {
-    border: 3px solid var(--negro);
+    border: 3px solid var(--black);
     padding: 1rem;
     font-size: 1rem;
     font-family: inherit;
-    background: var(--blanco);
+    background: var(--white);
     transition: var(--transition);
 }
 
@@ -419,9 +434,9 @@ section {
 }
 
 .submit-btn {
-    background: var(--negro);
-    color: var(--blanco);
-    border: 3px solid var(--negro);
+    background: var(--black);
+    color: var(--white);
+    border: 3px solid var(--black);
     padding: 1.5rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -431,27 +446,27 @@ section {
 }
 
 .submit-btn:hover {
-    background: var(--blanco);
-    color: var(--negro);
+    background: var(--white);
+    color: var(--black);
     transform: translateY(-5px);
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 0.8cm;
 }
 
 .contact-item {
     display: flex;
-    gap: 2rem;
+    gap: 0.8cm;
     align-items: flex-start;
 }
 
 .contact-icon {
     width: 60px;
     height: 60px;
-    border: 3px solid var(--negro);
+    border: 3px solid var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -473,11 +488,11 @@ section {
    FOOTER
 ========================= */
 footer {
-    background: var(--negro);
-    color: var(--blanco);
+    background: var(--black);
+    color: var(--white);
     text-align: center;
     padding: 3rem 2rem;
-    border-top: 5px solid var(--negro);
+    border-top: 5px solid var(--black);
 }
 
 footer p {
@@ -486,16 +501,16 @@ footer p {
 }
 
 /* =========================
-   BOTÓN SCROLL TO TOP
+   SCROLL TO TOP BUTTON
 ========================= */
 #scrollTop {
     display: none;
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: var(--negro);
-    color: var(--blanco);
-    border: 3px solid var(--negro);
+    background: var(--black);
+    color: var(--white);
+    border: 3px solid var(--black);
     width: 60px;
     height: 60px;
     cursor: pointer;
@@ -505,8 +520,8 @@ footer p {
 }
 
 #scrollTop:hover {
-    background: var(--blanco);
-    color: var(--negro);
+    background: var(--white);
+    color: var(--black);
     transform: translateY(-5px);
 }
 
@@ -519,10 +534,10 @@ footer p {
         top: 80px;
         left: -100%;
         flex-direction: column;
-        background: var(--blanco);
+        background: var(--white);
         width: 100%;
         padding: 2rem;
-        border-bottom: 3px solid var(--negro);
+        border-bottom: 3px solid var(--black);
         transition: var(--transition);
         gap: 1.5rem;
     }
@@ -576,7 +591,7 @@ footer p {
     }
 
     .portfolio-grid {
-        gap: 2rem;
+        gap: 1cm;
     }
 
     .filter-btn {
@@ -591,10 +606,23 @@ footer p {
     section {
         padding: 3rem 1rem;
     }
+    
+    /* Ajuste adicional para móviles */
+    .portfolio-item img {
+        padding: 15px;
+    }
+    
+    .portfolio-overlay h3 {
+        font-size: 1rem;
+    }
+    
+    .portfolio-overlay p {
+        font-size: 0.8rem;
+    }
 }
 
 /* =========================
-   ANIMACIONES
+   ANIMATIONS
 ========================= */
 @keyframes fadeInUp {
     from {
@@ -634,13 +662,13 @@ footer p {
 }
 
 /* =========================
-   UTILIDADES
+   UTILITIES
 ========================= */
 .btn-primary {
     display: inline-block;
-    background: var(--negro);
-    color: var(--blanco);
-    border: 3px solid var(--negro);
+    background: var(--black);
+    color: var(--white);
+    border: 3px solid var(--black);
     padding: 1.2rem 3rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -650,33 +678,33 @@ footer p {
 }
 
 .btn-primary:hover {
-    background: var(--blanco);
-    color: var(--negro);
+    background: var(--white);
+    color: var(--black);
     transform: translateY(-5px);
 }
 
 /* =========================
-   ESTADOS DE CARGA
+   LOADING STATES
 ========================= */
 body.loaded {
     opacity: 1;
 }
 
 /* =========================
-   MEJORAS DE ACCESIBILIDAD
+   ACCESSIBILITY IMPROVEMENTS
 ========================= */
 *:focus {
-    outline: 3px solid var(--negro);
+    outline: 3px solid var(--black);
     outline-offset: 3px;
 }
 
 a:focus,
 button:focus {
-    outline: 3px solid var(--negro);
+    outline: 3px solid var(--black);
 }
 
 /* =========================
-   IMPRESIÓN
+   PRINT
 ========================= */
 @media print {
     .navbar,
