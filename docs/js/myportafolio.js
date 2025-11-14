@@ -1,15 +1,15 @@
 /*!
 =========================================================
-* Mi Portafolio Maximalista
+* My Maximalist Portfolio
 =========================================================
-* Funcionalidades: Smooth Scroll, Filtros, Animaciones
+* Features: Smooth Scroll, Filters, Animations
 =========================================================
 */
 
 $(document).ready(function(){
     
     // =========================
-    // SMOOTH SCROLL PARA NAVEGACIÓN
+    // SMOOTH SCROLL FOR NAVIGATION
     // =========================
     $(".nav-link").on('click', function(event) {
         if (this.hash !== "") {
@@ -22,19 +22,19 @@ $(document).ready(function(){
                 window.location.hash = hash;
             });
             
-            // Cerrar menú móvil después de hacer clic
+            // Close mobile menu after clicking
             $('#navMenu').removeClass('active');
         }
     });
 
     // =========================
-    // MENÚ HAMBURGUESA
+    // HAMBURGER MENU
     // =========================
     $('#burger').click(function() {
         $('#navMenu').toggleClass('active');
     });
 
-    // Cerrar menú al hacer clic fuera
+    // Close menu when clicking outside
     $(document).click(function(event) {
         var clickover = $(event.target);
         var isNavOpen = $('#navMenu').hasClass('active');
@@ -56,23 +56,23 @@ $(document).ready(function(){
     });
 
     // =========================
-    // FILTROS DE PORTAFOLIO
+    // PORTFOLIO FILTERS
     // =========================
     $('.filter-btn').click(function() {
-        // Remover clase activa de todos los botones
+        // Remove active class from all buttons
         $('.filter-btn').removeClass('active');
-        // Agregar clase activa al botón clickeado
+        // Add active class to clicked button
         $(this).addClass('active');
         
         var filter = $(this).attr('data-filter');
         
         if (filter === 'all') {
-            // Mostrar todos los items con fadeIn
+            // Show all items with fadeIn
             $('.portfolio-item').fadeIn(400);
         } else {
-            // Ocultar todos los items primero
+            // Hide all items first
             $('.portfolio-item').fadeOut(300);
-            // Mostrar solo los items del filtro seleccionado
+            // Show only items from selected filter
             setTimeout(function() {
                 $('.portfolio-item[data-category="' + filter + '"]').fadeIn(400);
             }, 300);
@@ -80,29 +80,29 @@ $(document).ready(function(){
     });
 
     // =========================
-    // FORMULARIO DE CONTACTO
+    // CONTACT FORM
     // =========================
     $('#contactForm').submit(function(e) {
         e.preventDefault();
         
-        // Obtener valores del formulario
+        // Get form values
         var name = $('#name').val();
         var email = $('#email').val();
         var message = $('#message').val();
         
-        // Validación simple
+        // Simple validation
         if (name && email && message) {
-            alert('¡Mensaje enviado con éxito!\n\nNombre: ' + name + '\nEmail: ' + email + '\n\n(Esta es una demostración. En producción, aquí se enviaría el formulario a un servidor.)');
+            alert('Message sent successfully!\n\nName: ' + name + '\nEmail: ' + email + '\n\n(This is a demo. In production, the form would be sent to a server here.)');
             
-            // Limpiar formulario
+            // Clear form
             this.reset();
         } else {
-            alert('Por favor, completa todos los campos del formulario.');
+            alert('Please fill out all form fields.');
         }
     });
 
     // =========================
-    // ANIMACIÓN AL SCROLL
+    // SCROLL ANIMATION
     // =========================
     function isInViewport(element) {
         if (!element || !$(element).length) return false;
@@ -113,7 +113,7 @@ $(document).ready(function(){
         return elementBottom > viewportTop && elementTop < viewportBottom;
     }
 
-    // Ejecutar al cargar y al hacer scroll
+    // Execute on load and scroll
     function checkVisibility() {
         $('.about-card, .portfolio-item').each(function() {
             if (isInViewport(this) && !$(this).hasClass('animated')) {
@@ -122,16 +122,16 @@ $(document).ready(function(){
         });
     }
 
-    // Ejecutar al cargar la página
+    // Execute on page load
     setTimeout(checkVisibility, 100);
 
-    // Ejecutar al hacer scroll
+    // Execute on scroll
     $(window).scroll(function() {
         checkVisibility();
     });
 
     // =========================
-    // SMOOTH SCROLL PARA BOTONES
+    // SMOOTH SCROLL FOR BUTTONS
     // =========================
     $('.btn-primary[href^="#"]').on('click', function(event) {
         if (this.hash !== "") {
@@ -154,7 +154,7 @@ $(document).ready(function(){
     });
 
     // =========================
-    // ANIMACIÓN DE NÚMEROS
+    // NUMBER ANIMATION
     // =========================
     function animateNumbers() {
         $('.skill-item span:last-child').each(function() {
@@ -180,7 +180,7 @@ $(document).ready(function(){
         });
     }
 
-    // Ejecutar animación de números cuando la sección esté visible
+    // Execute number animation when section is visible
     var numbersAnimated = false;
     $(window).scroll(function() {
         if (!numbersAnimated && $('#about').length && isInViewport($('#about')[0])) {
@@ -190,7 +190,7 @@ $(document).ready(function(){
     });
 
     // =========================
-    // EFECTO PARALLAX SUAVE
+    // SMOOTH PARALLAX EFFECT
     // =========================
     $(window).scroll(function() {
         var scrollTop = $(this).scrollTop();
@@ -198,7 +198,7 @@ $(document).ready(function(){
     });
 
     // =========================
-    // NAVEGACIÓN ACTIVA SEGÚN SCROLL
+    // ACTIVE NAVIGATION BASED ON SCROLL
     // =========================
     $(window).scroll(function() {
         var scrollPos = $(document).scrollTop() + 100;
@@ -220,7 +220,7 @@ $(document).ready(function(){
     });
 
     // =========================
-    // CONTADOR DE CARACTERES EN TEXTAREA
+    // CHARACTER COUNTER IN TEXTAREA
     // =========================
     $('#message').on('input', function() {
         var maxLength = 500;
@@ -232,7 +232,7 @@ $(document).ready(function(){
     });
 
     // =========================
-    // LAZY LOADING PARA IMÁGENES
+    // LAZY LOADING FOR IMAGES
     // =========================
     if ('IntersectionObserver' in window) {
         var imageObserver = new IntersectionObserver(function(entries, observer) {
@@ -254,14 +254,14 @@ $(document).ready(function(){
     }
 
     // =========================
-    // BOTÓN SCROLL TO TOP
+    // SCROLL TO TOP BUTTON
     // =========================
-    // Crear botón si no existe
+    // Create button if it doesn't exist
     if ($('#scrollTop').length === 0) {
         $('body').append('<button id="scrollTop">↑</button>');
     }
 
-    // Mostrar/ocultar botón según scroll
+    // Show/hide button based on scroll
     $(window).scroll(function() {
         if ($(this).scrollTop() > 300) {
             $('#scrollTop').fadeIn();
@@ -270,42 +270,42 @@ $(document).ready(function(){
         }
     });
 
-    // Funcionalidad del botón
+    // Button functionality
     $('#scrollTop').click(function() {
         $('html, body').animate({scrollTop: 0}, 700);
         return false;
     });
 
     // =========================
-    // PREVENIR SCROLL HORIZONTAL
+    // PREVENT HORIZONTAL SCROLL
     // =========================
     $('body').css('overflow-x', 'hidden');
 
     // =========================
-    // CONSOLE LOG PERSONALIZADO
+    // CUSTOM CONSOLE LOG
     // =========================
-    console.log('%c¡Portafolio Cargado! 🚀', 'color: #000; font-size: 20px; font-weight: bold; background: #fff; padding: 10px; border: 3px solid #000;');
-    console.log('%cSi estás viendo esto, eres un desarrollador curioso 😎', 'color: #666; font-size: 14px;');
+    console.log('%cPortfolio Loaded! 🚀', 'color: #000; font-size: 20px; font-weight: bold; background: #fff; padding: 10px; border: 3px solid #000;');
+    console.log('%cIf you\'re seeing this, you\'re a curious developer 😎', 'color: #666; font-size: 14px;');
     
-}); // Fin de document.ready
+}); // End of document.ready
 
 // =========================
-// FUNCIONES FUERA DE DOCUMENT.READY
+// FUNCTIONS OUTSIDE DOCUMENT.READY
 // =========================
 
-// Función para detectar dispositivo móvil
+// Function to detect mobile device
 function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-// Aplicar estilos específicos para móvil
+// Apply mobile-specific styles
 if (isMobile()) {
     $(document).ready(function() {
         $('body').addClass('mobile-device');
     });
 }
 
-// Prevenir zoom en inputs en iOS
+// Prevent zoom on inputs in iOS
 $(document).on('focus', 'input, textarea', function() {
     if (isMobile()) {
         $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
@@ -319,5 +319,5 @@ $(document).on('blur', 'input, textarea', function() {
 });
 
 // =========================
-// FIN DEL SCRIPT
+// END OF SCRIPT
 // =========================
